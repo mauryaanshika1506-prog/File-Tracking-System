@@ -1,0 +1,90 @@
+ {% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+
+<div class="row mt-4">
+
+    <div class="col-sm-10 mx-auto">
+
+        <div class="card shadow-lg border-0">
+
+            <div class="card-header text-white py-3"
+                style=" background-color:rgb(189, 177, 162)">
+
+                <h3 class="text-center mb-0">👨‍💼 Add Employee</h3>
+
+            </div>
+
+            <div class="card-body p-4">
+
+                <form method="post" class="row g-3">
+                    {% csrf_token %}
+
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Employee ID</label>
+                        <input type="text" name="empid" class="form-control"
+                            placeholder="Enter Employee ID">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Employee Name</label>
+                        <input type="text" name="name" class="form-control"
+                            placeholder="Enter Employee Name">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Contact Number</label>
+                        <input type="text" name="contactno" class="form-control"
+                            placeholder="Enter Contact Number">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Email Address</label>
+                        <input type="email" name="email" class="form-control"
+                            placeholder="Enter Email Address">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Designation</label>
+                        <input type="text" name="designation" class="form-control"
+                            placeholder="Enter Designation">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Department</label>
+
+                        <select name="dept_id" class="form-select">
+                            <option selected disabled>Select Department</option>
+
+                            {% for d in depts %}
+                            <option value="{{ d.id }}">
+                                {{ d.dept_name }}
+                            </option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
+
+                    <div class="col-12 text-center mt-4">
+
+                        <button type="submit" class="btn btn-success px-5">
+                            💾 Save Employee
+                        </button>
+
+                        <button type="reset" class="btn btn-danger px-5 ms-3">
+                            🔄 Reset
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

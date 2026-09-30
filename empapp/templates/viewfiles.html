@@ -1,0 +1,49 @@
+{% extends 'empbase.html' %}
+{% load static %}
+{% block employee %}
+
+<div class="row">
+    <div class="col-sm-11 mx-auto">
+        <div class="card p-4 shadow">
+            <h3 style="text-align: center;">View Files</h3>
+            <hr>
+            <table class="table">
+                <th>
+
+                <td>File Id</td>
+                <td>Title</td>
+                <td>Subject</td>
+                <td>Current Holder</td>
+                <td>Status</td>
+                <td>File Attachment</td>
+                </th>
+                {% for f in files %}
+                <tr>
+                    <td></td>
+
+                    <td>{{f.file_no}}</td>
+
+                    <td>{{f.title}}</td>
+
+                    <td>{{f.subject}}</td>
+
+                    <td>{{f.current_holder.name}}</td>
+
+                    <td>{{f.status}}</td>
+
+                    <td>
+                        {% if f.file_attachment %}
+                        <a href="{{f.file_attachment.url}}" target="_blank" class="btn btn-sm btn-success">
+                            View File
+                        </a>
+                        {% else %}
+                        No file attached
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

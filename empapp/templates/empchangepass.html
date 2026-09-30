@@ -1,0 +1,32 @@
+{% extends 'empbase.html' %}
+{% load static %}
+{% block employee %}
+ <div class="row ">
+    <div class="col-sm-8 mx-auto">
+        <div class="card p-4 shadow">
+            <h2 class="mx-auto mb-5">Change Password</h2>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <input type="password" name="oldpwd" class="form-control mb-4" placeholder="Old Password">
+
+                <input type="password" name="newpwd" class="form-control mb-4" placeholder="New Password">
+
+                <input type="password" name="cnfpwd" class="form-control mb-4" placeholder="Confirm Password">
+
+                <button type="submit" class="btn btn-primary w-100">
+                    Change
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>
+ 
+
+ 
+
+
+
+{% endblock %}

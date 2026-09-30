@@ -1,0 +1,299 @@
+ {% extends 'empbase.html' %}
+{% load static %}
+
+{% block employee %}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2 class="fw-bold">
+            <i class="ti ti-user-edit"></i>
+            Update Profile
+        </h2>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-lg-10 mx-auto">
+
+
+            <div class="card shadow border-0">
+
+
+                <!-- Card Header -->
+
+                <div class="card-header  text-white" style="background-color: rgb(233, 219, 200);">
+
+                    <h5 class="mb-0">
+                        Employee Profile Information
+                    </h5>
+
+                </div>
+
+
+
+                <div class="card-body p-4">
+
+
+                    <form method="post" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+
+                        <div class="row g-4">
+
+
+                            <!-- Profile Picture -->
+
+                            <div class="col-md-12 text-center">
+
+
+                                {% if emp.picture %}
+
+                                <img src="{{emp.picture.url}}"
+                                     class="rounded-circle shadow mb-3"
+                                     width="130"
+                                     height="130">
+
+                                {% else %}
+
+                                <img src="{% static 'admin/assets/images/user/avatar-9.jpg' %}"
+                                     class="rounded-circle shadow mb-3"
+                                     width="130"
+                                     height="130">
+
+                                {% endif %}
+
+
+                                <h5>
+                                    {{emp.name}}
+                                </h5>
+
+                                <span class="badge bg-success">
+                                    Active Employee
+                                </span>
+
+
+                            </div>
+
+
+
+
+                            <!-- Employee ID -->
+
+                            <div class="col-md-6">
+
+                                <label class="form-label fw-semibold">
+                                    Employee ID
+                                </label>
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+                                        <i class="ti ti-id"></i>
+                                    </span>
+
+                                    <input type="text"
+                                           name="empid"
+                                           value="{{emp.empid}}"
+                                           class="form-control">
+
+                                </div>
+
+                            </div>
+
+
+
+
+
+                            <!-- Name -->
+
+                            <div class="col-md-6">
+
+                                <label class="form-label fw-semibold">
+                                    Employee Name
+                                </label>
+
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+                                        <i class="ti ti-user"></i>
+                                    </span>
+
+
+                                    <input type="text"
+                                           name="name"
+                                           value="{{emp.name}}"
+                                           class="form-control">
+
+                                </div>
+
+
+                            </div>
+
+
+
+
+
+                            <!-- Contact -->
+
+                            <div class="col-md-6">
+
+                                <label class="form-label fw-semibold">
+                                    Contact Number
+                                </label>
+
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+                                        <i class="ti ti-phone"></i>
+                                    </span>
+
+
+                                    <input type="text"
+                                           name="contactno"
+                                           value="{{emp.contactno}}"
+                                           class="form-control">
+
+                                </div>
+
+
+                            </div>
+
+
+
+
+
+
+                            <!-- Email -->
+
+                            <div class="col-md-6">
+
+                                <label class="form-label fw-semibold">
+                                    Email Address
+                                </label>
+
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+                                        <i class="ti ti-mail"></i>
+                                    </span>
+
+
+                                    <input type="email"
+                                           value="{{emp.email}}"
+                                           class="form-control "
+                                           disabled>
+
+                                </div>
+
+
+                            </div>
+
+
+
+
+
+
+                            <!-- Picture -->
+
+                            <div class="col-md-12">
+
+
+                                <label class="form-label fw-semibold">
+                                    Update Profile Picture
+                                </label>
+
+
+                                <input type="file"
+                                       name="picture"
+                                       class="form-control">
+
+
+                                <small class="text-muted">
+                                    Leave blank to keep existing picture
+                                </small>
+
+
+                            </div>
+
+
+
+
+
+
+
+                            <!-- Address -->
+
+                            <div class="col-md-12">
+
+
+                                <label class="form-label fw-semibold">
+                                    Address
+                                </label>
+
+
+                                <textarea name="address"
+                                          class="form-control"
+                                          rows="4">{{emp.address}}</textarea>
+
+
+                            </div>
+
+
+
+
+
+
+                            <!-- Button -->
+
+                            <div class="col-md-12 text-center mt-4">
+
+
+                                <button type="submit"
+                                        class="btn btn-primary px-5">
+
+                                    <i class="ti ti-device-floppy"></i>
+                                    Update Profile
+
+                                </button>
+
+
+
+                                
+
+
+                            </div>
+
+
+
+                        </div>
+
+
+                    </form>
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

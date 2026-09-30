@@ -1,0 +1,219 @@
+ {% extends 'empbase.html' %}
+{% load static %}
+
+{% block employee %}
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-lg-8 mx-auto">
+
+            <div class="card shadow-lg border-0">
+
+                <!-- Header -->
+                <div class="card-header text-white text-center py-3" style="background-color: rgb(233, 219, 200);">
+
+                    <h3 class="mb-0">
+                        <i class="ti ti-user"></i>
+                        Employee Profile
+                    </h3>
+
+                </div>
+
+
+                <div class="card-body p-4">
+
+
+                    <!-- Profile Section -->
+
+                    <div class="text-center mb-4">
+
+                        {% if emp.picture %}
+
+                        <img src="{{emp.picture.url}}"
+                             class="rounded-circle shadow"
+                             width="150"
+                             height="150">
+
+                        {% else %}
+
+                        <img src=" {% static 'admin/assets/images/user/avatar-9.jpg' %}"
+                             class="rounded-circle shadow"
+                             width="150"
+                             height="150">
+
+                        {% endif %}
+
+
+                        <h4 class="mt-3 mb-1">
+                            {{emp.name}}
+                        </h4>
+
+
+                        <span class="badge bg-success">
+                            Active Employee
+                        </span>
+
+
+                    </div>
+
+
+
+                    <hr>
+
+
+
+                    <!-- Details -->
+
+                    <h5 class="mb-3 text-primary">
+                        <i class="ti ti-info-circle"></i>
+                        Personal Information
+                    </h5>
+
+
+                    <div class="table-responsive">
+
+
+                        <table class="table table-bordered">
+
+
+                            <tr>
+
+                                <th width="35%">
+                                    Employee Name
+                                </th>
+
+                                <td>
+                                    {{emp.name}}
+                                </td>
+
+                            </tr>
+
+
+
+                            <tr>
+
+                                <th>
+                                    Email Address
+                                </th>
+
+                                <td>
+                                    {{emp.email}}
+                                </td>
+
+                            </tr>
+
+
+
+                            <tr>
+
+                                <th>
+                                    Contact Number
+                                </th>
+
+                                <td>
+                                    {{emp.contactno}}
+                                </td>
+
+                            </tr>
+
+
+
+                            <tr>
+
+                                <th>
+                                    Department
+                                </th>
+
+                                <td>
+                                    {{emp.department.dept_name}}
+                                </td>
+
+                            </tr>
+
+
+
+                            <tr>
+
+                                <th>
+                                    Designation
+                                </th>
+
+                                <td>
+                                    {{emp.designation}}
+                                </td>
+
+                            </tr>
+
+
+
+                            <tr>
+
+                                <th>
+                                    Address
+                                </th>
+
+                                <td>
+                                    {{emp.address}}
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <th>
+                                    Employee Status
+                                </th>
+
+                                <td>
+
+                                    <span class="badge bg-success">
+                                        Working
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                        </table>
+
+
+                    </div>
+
+
+
+                    <!-- Action Button -->
+
+                    <div class="text-center mt-4">
+
+
+                        <a href="{% url 'updateprofile'%}" class="btn btn-primary px-4">
+
+                            <i class="ti ti-edit"></i>
+                            Update Profile
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,63 @@
+ {% extends 'adminbase.html' %} 
+{% load static %} 
+
+{% block admin %} 
+ 
+<div class="row"> 
+    <div class="colsm-12"> 
+ 
+        <div class="card p-4"> 
+            <h2 style="text-align: center;">All Files</h2> 
+            <hr> 
+
+            <table class="table"> 
+                <tr> 
+                    <th>S No</th> 
+                    <th>file no</th> 
+                    <th>title</th> 
+                    <th>subject</th> 
+                    <th>initiated By</th> 
+                    <th>Current Holder</th> 
+                    <th>status</th> 
+                    <th>File Attachment</th> 
+                </tr> 
+
+                {% for f in files %} 
+
+                <tr> 
+                    <td>{{ forloop.counter }}</td> 
+                    <td>{{ f.file_no }}</td> 
+                    <td>{{ f.title }}</td> 
+                    <td>{{ f.subject }}</td> 
+                    <td>{{ f.initiated_by.name }}</td> 
+                    <td>{{ f.current_holder.name }}</td> 
+
+                    <!-- Status -->
+                    <td>
+                        {{ f.status }}
+                    </td>
+
+                    <!-- File Attachment -->
+                    <td>
+                        {% if f.file_attachment %}
+                            <a href="{{ f.file_attachment.url }}" target="_blank">
+                                View Files
+                            </a>
+                        {% else %}
+                            <a href="{% url 'updateattachment' f.id %}" 
+                               class="btn btn-sm btn-primary">
+                                Add Attachment
+                            </a>
+                        {% endif %}
+                    </td>
+
+                </tr> 
+
+                {% endfor %} 
+
+            </table> 
+        </div> 
+    </div> 
+</div> 
+
+{% endblock %}

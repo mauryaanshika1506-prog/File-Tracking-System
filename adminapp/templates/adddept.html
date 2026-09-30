@@ -1,0 +1,59 @@
+ {% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+
+<div class="row mt-4">
+
+    <div class="col-sm-6 mx-auto">
+
+        <div class="card shadow-lg border-0">
+
+            <div class="card-header text-white py-3"
+                style=" background-color:rgb(189, 177, 162)">
+
+                <h3 class="text-center mb-0">
+                    Add Department
+                </h3>
+
+            </div>
+
+            <div class="card-body p-4">
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">
+                            Department Name
+                        </label>
+
+                        <input type="text"
+                               name="dept_name"
+                               class="form-control"
+                               placeholder="Enter Department Name"
+                               required>
+                    </div>
+
+                    <div class="text-center mt-4">
+
+                        <button type="submit" class="btn btn-primary px-5">
+                            Save
+                        </button>
+
+                        <button type="reset" class="btn btn-danger px-5 ms-2">
+                            Reset
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
