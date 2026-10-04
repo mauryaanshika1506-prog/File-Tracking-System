@@ -28,7 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['file-tracking-system-847d.onrender.com', 'localhost', '127.0.0.1']
 
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -125,7 +124,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#file uploding
+#file uploading
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
